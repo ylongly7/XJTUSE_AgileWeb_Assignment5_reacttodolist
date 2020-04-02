@@ -21,17 +21,18 @@ export class App extends React.Component{
 	<div className="App">
       <header className="">
         
-        <h1>
-          Simple TodoList&nbsp;&nbsp;<button onClick={this.hdclick}>添加</button>
+        <h1 id="app_title">
+          Simple TodoList&nbsp;&nbsp;<button id="btn_add" onClick={this.hdclick}>添加</button>
         </h1>
-		
-		{
+				<div id="listcontent">
+				{
                     this.state.listArr.map((item,index)=>{
                         return(
-                             <TodoListItem content={item.content}/>
+                             <TodoListItem content={item.content} idx={index} />
                         )
                     })
                 }
+				</div>
          
       </header>
     </div>

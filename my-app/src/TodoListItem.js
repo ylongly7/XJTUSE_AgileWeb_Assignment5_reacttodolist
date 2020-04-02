@@ -8,11 +8,11 @@ export class TodoListItem extends React.Component{
   render(){
 	  return (
 	<div>
-     <input value={this.props.content }></input>&nbsp;&nbsp;
+     <input value={this.props.content } id={"input"+this.props.idx}></input>&nbsp;&nbsp;
 		
-		{this.state.st}
+		<span id={"todostate"+this.props.idx}>{this.state.st}</span>
 	 &nbsp;&nbsp;
-	 <button onClick={this.hdclick}>标记</button>
+	 <button onClick={this.hdclick} id={"btn_changests"+this.props.idx}>标记</button>
 	 <hr></hr>
 	 
 	</div>
