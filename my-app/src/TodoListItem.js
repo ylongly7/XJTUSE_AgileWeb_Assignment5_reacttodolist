@@ -5,6 +5,7 @@ export class TodoListItem extends React.Component{
  hdclick=()=>{
 	 this.setState({st:"已完成"})
  }
+ 
   render(){
 	  return (
 	<div>
@@ -13,6 +14,7 @@ export class TodoListItem extends React.Component{
 		<span id={"todostate"+this.props.idx}>{this.state.st}</span>
 	 &nbsp;&nbsp;
 	 <button onClick={this.hdclick} id={"btn_changests"+this.props.idx}>标记</button>
+	 <button onClick={()=>this.props.func_hdclick_del(this.props.idx)} id={"btn_del"+this.props.idx}>删除</button>
 	 <hr></hr>
 	 
 	</div>

@@ -8,10 +8,15 @@ import TodoListItem from './TodoListItem';
 export class App extends React.Component{
 		
 	hdclick=()=>{
-	 this.state.listArr.push({'content':'备忘录内容'+(this.state.listArr.length+1)})
+	 this.state.listArr.push({'content':'备忘录内容'+(this.state.listArr.length+1), 'delected':false})
 	 this.setState({listArr:this.state.listArr})
 	  
-	}		
+	}
+	 hdclick_del=(id)=>{
+		 //console.log("del",id)
+		 this.state.listArr[id].delected = true
+		 this.setState({listArr:this.state.listArr})
+	 }
 	
  state={itemcount:0,listArr:[ ]}
   render(){	 
@@ -27,9 +32,16 @@ export class App extends React.Component{
 				<div id="listcontent">
 				{
                     this.state.listArr.map((item,index)=>{
-                        return(
-                             <TodoListItem content={item.content} idx={index} />
-                        )
+							 
+							if (item.delected){
+								return (<></>)
+							}
+							else{
+								return (
+									 <TodoListItem content={item.content} idx={index} func_hdclick_del={this.hdclick_del} />
+								)
+							}
+						 
                     })
                 }
 				</div>
